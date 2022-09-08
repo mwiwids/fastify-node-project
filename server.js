@@ -1,7 +1,5 @@
 const PORT = process.env.PORT || 5000;
 
-start();
-
 const server = require("./src/app")({
   logger: {
     level: "info",
@@ -11,7 +9,7 @@ const server = require("./src/app")({
 
 const start = async () => {
   try {
-    await server.listen(PORT);
+    await server.listen(PORT, "0.0.0.0");
   } catch (error) {
     server.log.error(error);
     process.exit(1);
